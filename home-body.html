@@ -146,9 +146,10 @@
       $.get('https://raw.githubusercontent.com/tentendev/neteon-to-webflow/main/webflow.html', function(html) {
         // Loop through elements you want to Solutions scrape content from
         var productCategoryItems = $(html).find(".product-cat-listing > *");
-		productCategoryItems.each(function() {
+        if (productCategoryItems.length > 0) {
+          $('.rows.navbar-product').empty();
+		  productCategoryItems.each(function() {
 
-          if (productCategoryItems.length > 0) {
             var productCat = $(this).find('.main-cat').text();
             var htmlContent = `<div class="columns gap-0x">
                 <div class="navbar-tab-contanier">
@@ -160,9 +161,8 @@
             </div>`;
 
             $('.rows.navbar-product').append(htmlContent);
-          }
-
-        });
+          });
+        }
         
       });
 
