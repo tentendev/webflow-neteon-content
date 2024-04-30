@@ -159,7 +159,7 @@
             </div>`;
 
             $('.rows.navbar-product').append(htmlContent);
-            var prodLinks = $('.prod-links').eq(index + 1)
+            var prodLinks = $('.prod-links:eq(' + index + ')');
 			
             $(this).find('.main-item a').each(function() {
               var itemLink = $(this).attr('href');
