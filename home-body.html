@@ -148,19 +148,26 @@
         var productCategoryItems = $(html).find(".product-cat-listing > *");
         if (productCategoryItems.length > 0) {
           $('.rows.navbar-product').empty();
-		  productCategoryItems.each(function() {
+		  productCategoryItems.each(function(index) {
 
             var productCat = $(this).find('.main-cat').text();
             var htmlContent = `<div class="columns gap-0x">
                 <div class="navbar-tab-contanier">
                     <h6 class="navbar-tab">${productCat}</h6>
                 </div>
-                <div class="columns gap-0x">
-                    <a href="#" class="product-tabs-link" tabindex="0"></a>
-                </div>
+                <div class="columns gap-0x prod-links"></div>
             </div>`;
 
             $('.rows.navbar-product').append(htmlContent);
+            var prodLinks = $('.prod-links').eq(index + 1)
+			
+            $(this).find('.main-item a').each(function() {
+              var itemLink = $(this).attr('href');
+              var itemText = $(this).text();
+              var prodItem = `<a href="${itemLink}" class="product-tabs-link" tabindex="0">${itemText}</a>`;
+			 
+               prodLinks.append(prodItem);
+            });
           });
         }
         
