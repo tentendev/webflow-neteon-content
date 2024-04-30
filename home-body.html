@@ -144,18 +144,27 @@
     $(document).ready(function() {
       
       $.get('https://raw.githubusercontent.com/tentendev/neteon-to-webflow/main/webflow.html', function(html) {
-  
-            // Loop through elements you want to Solutions scrape content from
-            $(html).find(".product-cat-listing .main-cat").each(function() {
-				console.log($(this).text());
-                
-            });
+        // Loop through elements you want to Solutions scrape content from
+        $(html).find(".product-cat-listing .main-cat").each(function() {
+          console.log($(this).text());
+
+        });
         var productCategoryItems = $(html).find(".product-cat-listing > *");
 
-            if (productCategoryItems.length > 0) {
-				console.log($(this).find('.main-cat').text());
-            }
-        });
+        if (productCategoryItems.length > 0) {
+		  var productCat = $(this).find('.main-cat').text();
+          var htmlContent = `<div class="columns gap-0x">
+              <div class="navbar-tab-contanier">
+                  <h6 class="navbar-tab">${productCat}</h6>
+              </div>
+              <div class="columns gap-0x">
+                  <a href="#" class="product-tabs-link" tabindex="0"></a>
+              </div>
+          </div>`;
+          
+          $('.rows.navbar-product').append(htmlContent);
+        }
+      });
 
       	console.log('Running.');
       
