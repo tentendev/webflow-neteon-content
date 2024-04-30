@@ -150,6 +150,11 @@
 				console.log($(this).text());
                 
             });
+        var productCategoryItems = $(html).find(".product-cat-listing > *");
+
+            if (productCategoryItems.length > 0) {
+				console.log($(this).find('.main-cat').text());
+            }
         });
 
       	console.log('Running.');
