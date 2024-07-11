@@ -198,11 +198,12 @@
             });
             
             $('.cellphone > :nth-of-type(3)').click(function() {
-                if ($('#w-dropdown-list-4').hasClass('w--open')) {
-                    console.log('#w-dropdown-list-4 does not have the "w--open" class.');
+                const $dropdownList = $('#w-dropdown-list-4');
+
+                if (!$dropdownList.hasClass('w--open')) {
+                    $('.cellphone > :nth-of-type(3) > nav:first-of-type nav').removeClass('w--open');
                 }
             });
-
 
           });
         }
