@@ -188,11 +188,14 @@
                prodLinksMobile.append(prodItemMobile);
             });
             $('.btn-clicker-neteon').click(function() {
-                // Hide all nav elements
-                $('.neteon-product-items').removeClass('w--open');
-
-                // Show the nav element of the clicked item
-                $(this).find('nav.neteon-product-items').addClass('w--open');
+				const navElement = $(this).find('nav.neteon-product-items');
+                
+              	if (navElement.hasClass('w--open')) {
+                    navElement.removeClass('w--open');
+                } else {
+                    $('.neteon-product-items').removeClass('w--open');
+                    navElement.addClass('w--open');
+                }
             });
           });
         }
