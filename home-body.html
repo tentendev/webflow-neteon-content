@@ -190,12 +190,8 @@
             $('.btn-clicker-neteon').click(function() {
                 const navElement = $(this).find('nav.neteon-product-items');
 
-                if (navElement.hasClass('w--open')) {
-                    navElement.toggleClass('w--open');
-                } else {
-                    $('.neteon-product-items').removeClass('w--open');
-                    navElement.addClass('w--open');
-                }
+                $('.neteon-product-items').removeClass('w--open');
+                navElement.addClass('w--open');
             });
 
           });
