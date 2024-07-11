@@ -191,17 +191,10 @@
 
             $('.btn-clicker-neteon').click(function() {
                 const navElement = $(this).find('nav.neteon-product-items');
-                const currentId = navElement.attr('id');  // Get the current ID
-                console.log('Previous ID:', previousId);
-                console.log('Current ID:', currentId);  // Log the current ID
-                if (currentId === previousId) {
-                    navElement.toggleClass('w--open');
-                } else {
-                    $('.neteon-product-items').removeClass('w--open');
-                    navElement.addClass('w--open');
-                }
 
-                previousId = currentId;
+                // Toggle the 'w--open' class on the clicked navElement
+                $('.neteon-product-items').removeClass('w--open');
+                navElement.addClass('w--open');
             });
           });
         }
