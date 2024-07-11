@@ -187,6 +187,13 @@
                prodLinks.append(prodItem);
                prodLinksMobile.append(prodItemMobile);
             });
+            $('.btn-clicker-neteon').click(function() {
+                // Hide all nav elements
+                $('.neteon-product-items').hide();
+
+                // Show the nav element of the clicked item
+                $(this).find('nav.neteon-product-items').show();
+            });
           });
         }
         
