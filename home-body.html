@@ -187,14 +187,22 @@
                prodLinks.append(prodItem);
                prodLinksMobile.append(prodItemMobile);
             });
+            let previousId = null;
+
             $('.btn-clicker-neteon').click(function() {
                 const navElement = $(this).find('nav.neteon-product-items');
-				console.log(navElement.attr('id'));
-                // Toggle the 'w--open' class on the clicked navElement
-                $('.neteon-product-items').removeClass('w--open');
-                navElement.addClass('w--open');
-            });
+                const currentId = navElement.attr('id');  // Get the current ID
 
+                console.log('Current ID:', currentId);  // Log the current ID
+                if (currentId === previousId) {
+                    navElement.toggleClass('w--open');
+                } else {
+                    $('.neteon-product-items').removeClass('w--open');
+                    navElement.addClass('w--open');
+                }
+
+                previousId = currentId;
+            });
           });
         }
         
