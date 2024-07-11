@@ -152,6 +152,8 @@
         if (productCategoryItems.length > 0) {
           console.log('Start appending content!')
           $('.rows.navbar-product').empty();
+          $('.cellphone > :nth-of-type(3) > nav:first-of-type').empty();
+          
 		  productCategoryItems.each(function(index) {
 
             var productCat = $(this).find('.main-cat').text();
@@ -161,16 +163,29 @@
                 </div>
                 <div class="columns gap-0x prod-links"></div>
             </div>`;
+            var htmlContentMobile = `<div data-hover="false" data-delay="0" class="dropdown-second-layer w-dropdown w--nav-dropdown-open" style="">
+    <div class="dropdown-toggle w-dropdown-toggle w--nav-dropdown-toggle-open" id="w-dropdown-toggle-5" aria-controls="w-dropdown-list-5" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+        <div class="icon w-icon-dropdown-toggle" aria-hidden="true"></div>
+        <div>${productCat}</div>
+    </div>
+    <nav class="w-dropdown-list w--nav-dropdown-list-open neteon-product-items" id="w-dropdown-list-5" aria-labelledby="w-dropdown-toggle-5"></nav>
+</div>`;
 
             $('.rows.navbar-product').append(htmlContent);
+            $('.cellphone > :nth-of-type(3) > nav:first-of-type').append(htmlContentMobile);
             var prodLinks = $('.prod-links:eq(' + index + ')');
+            var prodLinksMobile = $('.neteon-product-items:eq(' + index + ')');
 			
             $(this).find('.main-item a').each(function() {
               var itemLink = $(this).attr('href');
               var itemText = $(this).text();
               var prodItem = `<a href="${itemLink}" class="product-tabs-link" tabindex="0">${itemText}</a>`;
-			 
+			  var prodItemMobile = `<a href="${itemLink}" class="cellphone-dropdown-product-link w-inline-block">
+            <div class="dropdown-line"></div>
+            <p>${itemText}</p>
+        </a>`;
                prodLinks.append(prodItem);
+               .append(prodItemMobile);
             });
           });
         }
