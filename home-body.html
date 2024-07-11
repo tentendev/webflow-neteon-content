@@ -194,9 +194,8 @@
 
       	console.log('Running.');
       	$('.btn-clicker-neteon').click(function() {
-          console.log('Hello.')
-          $(this).find('nav.neteon-product-items').addClass('w--open');
-          $('.btn-clicker-neteon nav.neteon-product-items').removeClass('w--open');
+          $(this).find('nav.neteon-product-items').show();
+          $('.btn-clicker-neteon nav.neteon-product-items').hide();
         });
       	var outputContainer = $('<div class="quick-search-items"></div>');
       
