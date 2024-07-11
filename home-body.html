@@ -189,7 +189,7 @@
             });
             $('.btn-clicker-neteon').click(function() {
                 const navElement = $(this).find('nav.neteon-product-items');
-
+				console.log(navElement.hasClass('w--open'))
                 // Toggle the 'w--open' class on the clicked navElement
                 $('.neteon-product-items').not(navElement).removeClass('w--open');
                 navElement.addClass('w--open');
